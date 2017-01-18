@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
                     calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
                     calendar.set(Calendar.MINUTE, timePicker.getMinute());
+                    calendar.set(Calendar.MILLISECOND,0);
+                    calendar.set(Calendar.SECOND,0);
                     Intent intent = new Intent(MainActivity.this, MyReceiver.class);
                     pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent,0); //request code and flag and PendingIntent
                     alarmManager.set(AlarmManager.RTC,calendar.getTimeInMillis(),pendingIntent); //AlarmManager.RTC
@@ -51,5 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
